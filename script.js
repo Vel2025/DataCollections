@@ -4,11 +4,7 @@ let cell2 ="";
 let cell3 ="";
 let cell4 ="";
 let currentCell= 0;
-// for (i=0; i<str.length; i++){
-//     console.log(str)
-//     break;
 
-// }
 
 for (i=0; i<str.length; i++){
     if (str[i]===","){
@@ -19,10 +15,10 @@ for (i=0; i<str.length; i++){
         // console.log ("found a new line")
         console.log(cell1, cell2, cell3, cell4);
         currentCell=0;
-        cell1 = 0;
-        cell2 = 0;
-        cell3 = 0;
-        cell4 = 0;
+        cell1 = '';
+        cell2 = '';
+        cell3 = '';
+        cell4 = '';
     } else if(currentCell==0){
         cell1+= str[i];
         // console.log(str[i])
@@ -41,9 +37,34 @@ for (i=0; i<str.length; i++){
     }
     if(i=== str.length-1){
         console.log(cell1, cell2, cell3, cell4);
+    }
+}
+
+console.log ('==============Part -1 Refactoring Old Code============');
+
+let str1 = 'ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26';
+
+let cell = '';
+let row = [];
+
+for (i=0; i<str1.length; i++){
+
+    if(str1[i]===','){
+        row.push(cell);
+        cell ='';
+    } else if(str1[i]==='\n'){
+        row.push(cell);
+        console.log(row)
+        row =[];
+        cell = '';
+        
+    } else {
+        cell+= str1[i];
 
     }
-
+    if(i==str1.length-1){
+        console.log(row);
+    }
 
 
 }
