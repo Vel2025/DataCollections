@@ -45,26 +45,63 @@ console.log ('==============Part -1 Refactoring Old Code============');
 let str1 = 'ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26';
 
 let cell = '';
-let row = [];
+let rows = [];
 
 for (i=0; i<str1.length; i++){
 
     if(str1[i]===','){
-        row.push(cell);
+        rows.push(cell);
         cell ='';
     } else if(str1[i]==='\n'){
-        row.push(cell);
-        console.log(row)
-        row =[];
+        rows.push(cell);
+        console.log(rows)
+        rows =[];
         cell = '';
         
     } else {
         cell+= str1[i];
 
     }
-    if(i==str1.length-1){
-        console.log(row);
+    if(i===str1.length-1){
+        rows.push(cell);
+        console.log(rows);
+    }
+}
+
+
+console.log ('================Part 2: Expanding Functionality==============');
+
+rows =[];
+cell = "";
+let mainArr = [];
+let colNums = [];
+for (j=0; j<str1.length; j++){
+
+    if(str1[j]===','){
+        rows.push(cell);
+        cell ='';
+    } else if(str1[j]==='\n'){
+        rows.push(cell);
+        mainArr.push(rows);
+        // console.log(rows);
+        colNums.push(rows.length);
+        rows =[];
+        cell = '';
+        
+    } else {
+        cell+= str1[j];
+
+    }
+    if(j===str1.length-1){
+        rows.push(cell);
+        mainArr.push(rows);
+        console.log(mainArr);
     }
 
 
+    // console.log(colNums);
+    // if(===str1.length-1){
+    //     rows.push(cell);
+    //     console.log(rows);
+    // }
 }
