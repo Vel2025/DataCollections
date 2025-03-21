@@ -136,7 +136,7 @@ console.log('=====================Part 4: Sorting and Manipulating Data=========
 
 let copyNewArr = newArr.concat();
 
-copyNewArr.pop(); 
+copyNewArr.pop();
 console.log('Removed the last element in the sorted array')
 console.log(copyNewArr);
 copyNewArr.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" });
@@ -158,7 +158,7 @@ for (const key in copyNewArr) {
     sum += ageNum;
 }
 avgAge = sum / ageList.length;
-console.log(`Average age:`+ avgAge);
+console.log(`Average age:` + avgAge);
 
 console.log('====================Part 5: Full Circle==========')
 
@@ -182,4 +182,3 @@ dataArray.forEach(obj => {
 console.log('New String in CSV format:\n', newStr);
 console.log('====================================================');
 
- 
