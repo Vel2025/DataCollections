@@ -134,3 +134,52 @@ mainArr.forEach((line, index) => {
 
 console.log('=====================Part 4: Sorting and Manipulating Data==========')
 
+let copyNewArr = newArr.concat();
+
+copyNewArr.pop(); 
+console.log('Removed the last element in the sorted array')
+console.log(copyNewArr);
+copyNewArr.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" });
+console.log('Added new element at index 1');
+console.log(copyNewArr);
+console.log('Added new element at the end');
+copyNewArr.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" })
+console.log(copyNewArr);
+
+console.log('Calculated the average age of the above all age elements');
+
+let ageList = [];
+let sum = 0;
+let avgAge = 0;
+
+for (const key in copyNewArr) {
+    let ageNum = Number(copyNewArr[key].age);
+    ageList.push(ageNum);
+    sum += ageNum;
+}
+avgAge = sum / ageList.length;
+console.log(`Average age:`+ avgAge);
+
+console.log('====================Part 5: Full Circle==========')
+
+let newStr = '';
+const dataArray = copyNewArr;
+
+// Get headers from first object and join with commas
+const headers = Object.keys(dataArray[0]);
+newStr += headers.join(',') + '\\n';
+// console.log(headers);
+// console.log (newStr);
+
+// Add each row of data
+dataArray.forEach(obj => {
+    const row = Object.values(obj).join(',');
+    newStr += row + '\\n';
+    // console.log(row);
+});
+
+
+console.log('New String in CSV format:\n', newStr);
+console.log('====================================================');
+
+ 
